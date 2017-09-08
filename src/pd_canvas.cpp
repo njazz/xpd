@@ -76,12 +76,14 @@ PdCanvas::~PdCanvas()
 
 ObjectId PdCanvas::createObject(const std::string& name, int x, int y)
 {
-    if (isSubpatchName(name)) {
-        CanvasSettings settings(name, x, y);
-        Object* cnv = new PdCanvas(this, settings);
-        obj_list_.append(cnv);
-        return cnv->id();
-    }
+    // this was modified
+
+//    if (isSubpatchName(name)) {
+//        CanvasSettings settings(name, x, y);
+//        Object* cnv = new PdCanvas(this, settings);
+//        obj_list_.append(cnv);
+//        return cnv->id();
+//    }
 
     //    t_cpd_atomlist* lst = cpd_list_new();
     //    lst.n = 0;
