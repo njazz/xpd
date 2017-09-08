@@ -16,6 +16,7 @@ class PdCanvas : public Canvas {
 
 public:
     PdCanvas(const CanvasSettings& s);
+    PdCanvas(const CanvasSettings& s, t_cpd_object *object);
     ~PdCanvas();
 
     ObjectId createObject(const std::string& name, int x, int y) override;
