@@ -8,6 +8,7 @@
 #include "cpd/cpd_canvas.h"
 
 namespace xpd {
+class PdCanvas;
 
 class PdObject : public Object {
     t_cpd_canvas* cnv_;
@@ -41,6 +42,9 @@ public:
 
     virtual void registerObserver(ObserverPtr o) override;
     virtual void deleteObserver(ObserverPtr) override;
+
+    // subpatches prototype
+    PdCanvas* asPdCanvas();
 };
 
 } // namespace xpd

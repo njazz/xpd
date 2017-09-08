@@ -156,4 +156,26 @@ void PdObject::sendStringAsList(std::string s)
     }
 }
 
+PdCanvas* PdObject::asPdCanvas()
+{
+
+    bool isCanvas;
+    PdCanvas* ret = 0;
+
+    if (!obj_) {
+        isCanvas = false;
+        log()->error("to_server_canvas: bad canvas object!");
+    } else
+        isCanvas = cpd_is_canvas(obj_);
+
+    if (isCanvas) {
+        CanvasSettings settings = CanvasSettings("< subpatch >");
+        ret = new PdCanvas(settings, obj_);
+    } else {
+        log()->error("object is not a canvas!");
+    }
+
+    return ret;
+}
+
 } // namespace xpd
