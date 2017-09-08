@@ -165,6 +165,7 @@ PdCanvas* PdObject::asPdCanvas()
     if (!obj_) {
         isCanvas = false;
         log()->error("to_server_canvas: bad canvas object!");
+        return ret;
     } else
         isCanvas = cpd_is_canvas(obj_);
 
