@@ -77,7 +77,7 @@ public:
     virtual void registerConsoleObserver(ConsoleObserverPtr o);
     virtual void unregisterConsoleObserver(ConsoleObserverPtr o);
 
-    void addSearchPath(const std::string& path);
+    virtual void addSearchPath(const std::string& path);
 
     bool loadLibrary(const std::string& libraryName);
     bool loadExternal(const std::string& externalName);

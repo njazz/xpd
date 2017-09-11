@@ -33,6 +33,8 @@ public:
     virtual void registerConsoleObserver(ConsoleObserverPtr o);
     virtual void unregisterConsoleObserver(ConsoleObserverPtr o);
 
+    virtual void addSearchPath(const std::string &path) override;
+
     virtual LibraryList loadedLibraries() const;
     virtual ClassList loadedClasses() const;
 

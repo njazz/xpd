@@ -177,4 +177,8 @@ void PdLocalProcess::receiverCallback(t_cpd_list* msg)
     }
 }
 
+void PdLocalProcess::addSearchPath(const std::string &path) {
+    cpd_searchpath_append(path.c_str());
+}
+
 } // namespace xpd
