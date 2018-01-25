@@ -97,7 +97,7 @@ TEST_CASE("PdCanvas", "[PdCanvas]")
         REQUIRE(c->children().findObjectIndex(sp_id) == 0);
 
         REQUIRE(obj->type() == OBJ_TYPE_CANVAS);       
-        Canvas* subpatch = obj->asCanvas();
+        Canvas* subpatch = (Canvas*)obj->asCanvas();
         //PdCanvas* subpatch = ((PdObject*)obj)->asPdCanvas();
         REQUIRE(subpatch);
         REQUIRE(subpatch->inletCount() == 0);
