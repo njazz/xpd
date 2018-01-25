@@ -79,8 +79,8 @@ public:
 
     virtual void addSearchPath(const std::string& path);
 
-    bool loadLibrary(const std::string& libraryName);
-    bool loadExternal(const std::string& externalName);
+    virtual bool loadLibrary(const std::string& libraryName) = 0;
+    virtual bool loadExternal(const std::string& externalName) = 0;
 
     const AbstractServer* parent() const;
 

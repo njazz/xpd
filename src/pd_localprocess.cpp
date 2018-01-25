@@ -181,4 +181,17 @@ void PdLocalProcess::addSearchPath(const std::string &path) {
     cpd_searchpath_append(path.c_str());
 }
 
+bool PdLocalProcess::loadLibrary(const std::string& libraryName)
+{
+    // cpd_load_library returns 0 if ok
+    bool ret = cpd_load_library(cpd_symbol(libraryName.c_str()));
+    return ret;
+}
+
+bool PdLocalProcess::loadExternal(const std::string& externalName)
+{
+    // stub
+    return false;
+}
+
 } // namespace xpd

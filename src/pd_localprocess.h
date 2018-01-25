@@ -35,6 +35,9 @@ public:
 
     virtual void addSearchPath(const std::string &path) override;
 
+    virtual bool loadLibrary(const std::string &libraryName) override;
+    virtual bool loadExternal(const std::string &externalName) override;
+
     virtual LibraryList loadedLibraries() const override;
     virtual ClassList loadedClasses() const override;
 

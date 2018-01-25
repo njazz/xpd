@@ -19,6 +19,8 @@ public:
     virtual ProcessPtr createProcess() override { return 0; };
 };
 
+extern const char* CATCHER_NAME;
+
 TEST_CASE("AbstractServer", "[AbstractServer]")
 {
     SECTION("serverSettings")
