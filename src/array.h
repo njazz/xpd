@@ -13,13 +13,15 @@ public:
         PLOT_BEZIER
     };
 
+    // virtual ObjectId createObject(const std::string &name, int x, int y) override {return 0;}
+
 public:
     FloatArray(const Canvas* parent, const std::string& name, size_t size);
 
     /**
      * Returns OBJ_TYPE_ARRAY 
      */
-    ObjectType type() const;
+    virtual ObjectType type() const override;
 
     /**
      * Returns array size

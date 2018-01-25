@@ -30,6 +30,9 @@ public:
     bool operator!=(const ServerSettings& s) const;
 };
 
+/**
+ * @brief The Abstract Server class.
+ */
 class AbstractServer {
 protected:
     ProcessList process_list_;
@@ -50,13 +53,13 @@ public:
     const ProcessList& processList() const;
 
     /**
-     * @brief creates new process
-     * @return pointer to new process or null-ptr on error
+     * @brief Creates new abstract server process.
+     * @return Pointer to new process or null-ptr on error
      */
     virtual ProcessPtr createProcess() = 0;
 
     /**
-     * Returns server name 
+     * @brief Returns server name
      */
     const std::string& name() const;
 };

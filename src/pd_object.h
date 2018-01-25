@@ -28,9 +28,13 @@ public:
     size_t inletCount() const override;
     size_t outletCount() const override;
 
+    virtual size_t childrenCount() const override;
+
     const Arguments& arguments() const override;
 
     t_cpd_object* pdObject();
+
+    virtual ObjectType type() const override;
 
     void sendBang() override;
     void sendFloat(float f) override;
@@ -45,6 +49,12 @@ public:
 
     // subpatches prototype
     PdCanvas* asPdCanvas();
+
+//    virtual Canvas* asCanvas() const override;
+
+    //virtual ObjectId createObject(const std::string& name, int x, int y) override;
+
+
 };
 
 } // namespace xpd

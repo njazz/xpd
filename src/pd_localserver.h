@@ -9,7 +9,7 @@ class PdLocalServer : public AbstractServer {
 public:
     PdLocalServer(const ServerSettings& s);
     ~PdLocalServer();
-    ProcessPtr createProcess();
+    virtual ProcessPtr createProcess() override;
 };
 
 } // namespace xpd

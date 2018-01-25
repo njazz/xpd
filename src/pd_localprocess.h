@@ -16,27 +16,27 @@ public:
     PdLocalProcess(const AbstractServer* parent, const ServerProcessSettings& s);
     ~PdLocalProcess();
 
-    void dspSwitch(bool value);
+    void dspSwitch(bool value) override;
 
     /**
      * Creates PdCanvas
      * @return pointer to new canvas or 0 on error
      */
-    CanvasPtr createCanvas();
+    virtual CanvasPtr createCanvas() override;
 
-    virtual void post(const std::string& text = "");
-    virtual void error(const std::string& text = "");
-    virtual void log(LogLevel level, const std::string& text);
+    virtual void post(const std::string& text = "") override;
+    virtual void error(const std::string& text = "") override;
+    virtual void log(LogLevel level, const std::string& text) override;
 
-    virtual void setLogLevel(LogLevel l);
+    virtual void setLogLevel(LogLevel l) override;
 
-    virtual void registerConsoleObserver(ConsoleObserverPtr o);
-    virtual void unregisterConsoleObserver(ConsoleObserverPtr o);
+    virtual void registerConsoleObserver(ConsoleObserverPtr o) override;
+    virtual void unregisterConsoleObserver(ConsoleObserverPtr o) override;
 
     virtual void addSearchPath(const std::string &path) override;
 
-    virtual LibraryList loadedLibraries() const;
-    virtual ClassList loadedClasses() const;
+    virtual LibraryList loadedLibraries() const override;
+    virtual ClassList loadedClasses() const override;
 
     std::string getBindObjectList();
     std::vector<std::string> getLoadedClassesList();

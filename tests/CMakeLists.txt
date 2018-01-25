@@ -65,5 +65,7 @@ xpd_add_test(Array xpd_array)
 xpd_add_test(PdObject pdobject)
 xpd_add_test(LocalServer localserver)
 xpd_add_test(ObjectList objectlist)
+
 xpd_add_test(PdFloatArray xpd_pd_floatarray)
 xpd_add_test(PdCanvas xpd_pd_canvas)
+xpd_add_test(AbstractServer xpd_abstract_server)

@@ -19,8 +19,10 @@ public:
         cnt--;
     }
 
-    size_t inletCount() const { return 3; }
-    size_t outletCount() const { return 1; }
+    virtual size_t inletCount() const override { return 3; }
+    virtual size_t outletCount() const override { return 1; }
+
+    //virtual ObjectId createObject(const std::string &name, int x, int y) override {return 0;}
 
 public:
     static int cnt;

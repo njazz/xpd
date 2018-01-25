@@ -62,12 +62,12 @@ public:
      */
     virtual ObjectId createArray(const std::string& name, size_t size) = 0;
 
-    bool hasChildren() const;
-    size_t childrenCount() const;
-    const ObjectList& children() const;
-    void removeAllChildren();
+    virtual bool hasChildren() const override;
+    virtual size_t childrenCount() const override;
+    virtual const ObjectList& children() const override;
+    virtual void removeAllChildren() override;
 
-    ObjectType type() const;
+    virtual ObjectType type() const override;
 
     void sendBang(ObjectId id);
     void sendFloat(ObjectId id, float f);
@@ -80,7 +80,7 @@ public:
     /**
      * If canvas has no parents - it's root canvas
      */
-    bool isRoot() const;
+    virtual bool isRoot() const override;
 
     virtual std::vector<std::string> availableObjects() const;
 };

@@ -72,11 +72,17 @@ void PdObject::setY(int y)
 
 size_t PdObject::inletCount() const
 {
+//    if (cpd_is_canvas(obj_))
+//        return cpd_object_inlet_count(obj_);
+
     return inlet_n_;
 }
 
 size_t PdObject::outletCount() const
 {
+//    if (cpd_is_canvas(obj_))
+//        return cpd_object_outlet_count(obj_);
+
     return outlet_n_;
 }
 
@@ -88,6 +94,17 @@ const Arguments& PdObject::arguments() const
 t_cpd_object* PdObject::pdObject()
 {
     return obj_;
+}
+
+ObjectType PdObject::type() const
+{
+    if (!obj_)
+        return OBJ_TYPE_ERROR_BOX;
+
+    if (cpd_is_canvas(obj_))
+        return OBJ_TYPE_CANVAS;
+    else
+        return OBJ_TYPE_SIMPLE_BOX;
 }
 
 void PdObject::sendBang()
@@ -178,5 +195,34 @@ PdCanvas* PdObject::asPdCanvas()
 
     return ret;
 }
+
+size_t PdObject::childrenCount() const
+{
+    if (!obj_)
+        return 0;
+
+    if (!cpd_is_canvas(obj_))
+        return 0;
+
+    return cpd_canvas_object_count((t_cpd_canvas*)obj_);
+}
+
+//ObjectId PdObject::createObject(const std::string& name, int x, int y)
+//{
+//    if (!cpd_is_canvas(obj_))
+//        return 0;
+
+//    PdCanvas* c = static_cast<PdCanvas*>(asCanvas());
+
+//    if (!c)
+//        return 0;
+
+//    return c->createObject(name,x,y);
+//}
+
+//Canvas* PdObject::asCanvas() const
+//{
+//    return (type() == OBJ_TYPE_CANVAS) ? (Canvas*)(this) : nullptr;
+//}
 
 } // namespace xpd
