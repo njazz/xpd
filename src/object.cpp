@@ -62,10 +62,12 @@ void Object::setType(ObjectType type)
 
 void Object::registerObserver(ObserverPtr o)
 {
+    observers_.push_back(o);
 }
 
-void Object::deleteObserver(ObserverPtr)
+void Object::deleteObserver(ObserverPtr o)
 {
+    observers_.erase(std::find(observers_.begin(), observers_.end(), o));
 }
 
 const InletList& Object::inlets() const

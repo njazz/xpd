@@ -6,6 +6,10 @@
 
 namespace xpd {
 
+/**
+ * @brief The PdArguments class
+ * @details see Arguments class
+ */
 class PdArguments : public Arguments {
     t_cpd_list* lst_;
 
@@ -23,6 +27,7 @@ public:
 
     void clear();
 
+    /// @brief Get contents as CPD list
     const t_cpd_list* atomList() const;
 
 private:

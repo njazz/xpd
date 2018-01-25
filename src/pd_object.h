@@ -10,6 +10,10 @@
 namespace xpd {
 class PdCanvas;
 
+/**
+ * @brief The PdObject class
+ * @details See Object base class
+ */
 class PdObject : public Object {
     t_cpd_canvas* cnv_;
     t_cpd_object* obj_;
@@ -50,11 +54,8 @@ public:
     // subpatches prototype
     PdCanvas* asPdCanvas();
 
-//    virtual Canvas* asCanvas() const override;
-
+    //virtual Canvas* asCanvas() const override;
     //virtual ObjectId createObject(const std::string& name, int x, int y) override;
-
-
 };
 
 } // namespace xpd

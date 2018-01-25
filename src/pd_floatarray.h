@@ -10,6 +10,10 @@
 
 namespace xpd {
 
+/**
+ * @brief The PdFloatArray class
+ * @details See FloatArray
+ */
 class PdFloatArray : public FloatArray {
     t_cpd_canvas* cnv_;
     t_cpd_array* arr_;

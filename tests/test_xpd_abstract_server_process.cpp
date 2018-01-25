@@ -22,6 +22,11 @@ public:
 
     virtual bool loadLibrary(const std::string& libraryName) override { return true; };
     virtual bool loadExternal(const std::string& externalName) override { return true; };
+
+    virtual void addSearchPath(const std::string &path) override {};
+
+    virtual void sendMessage(const std::string& object, const std::string& text) override{};
+
 };
 
 TEST_CASE("AbstractServerProcess", "[AbstractServerProcess]")

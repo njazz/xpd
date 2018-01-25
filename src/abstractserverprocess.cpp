@@ -48,9 +48,9 @@ void AbstractServerProcess::unregisterObserver(ObserverPtr o)
 {
 }
 
-void AbstractServerProcess::addSearchPath(const std::string& path)
-{
-}
+//void AbstractServerProcess::addSearchPath(const std::string& path)
+//{
+//}
 
 //bool AbstractServerProcess::loadLibrary(const std::string& libraryName)
 //{
@@ -126,9 +126,9 @@ ClassList AbstractServerProcess::loadedClasses() const
     return ret;
 }
 
-void AbstractServerProcess::sendMessage(const std::string& object, const std::string& text)
-{
-}
+//void AbstractServerProcess::sendMessage(const std::string& object, const std::string& text)
+//{
+//}
 
 void AbstractServerProcess::registerConsoleObserver(ConsoleObserverPtr o)
 {
