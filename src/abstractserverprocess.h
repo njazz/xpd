@@ -77,10 +77,14 @@ public:
     virtual void registerConsoleObserver(ConsoleObserverPtr o);
     virtual void unregisterConsoleObserver(ConsoleObserverPtr o);
 
+    // ?
     virtual void addSearchPath(const std::string& path);
 
     virtual bool loadLibrary(const std::string& libraryName) = 0;
     virtual bool loadExternal(const std::string& externalName) = 0;
+
+    virtual LibraryList loadedLibraries() const;
+    virtual ClassList loadedClasses() const;
 
     const AbstractServer* parent() const;
 
@@ -95,9 +99,6 @@ public:
     virtual bool deleteCanvas(CanvasPtr cnv);
     const CanvasList& canvasList() const;
     virtual size_t canvasCount() const;
-
-    virtual LibraryList loadedLibraries() const;
-    virtual ClassList loadedClasses() const;
 
     virtual void sendMessage(const std::string& object, const std::string& text);
 };

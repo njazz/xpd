@@ -31,8 +31,19 @@ TEST_CASE("AbstractServerProcess", "[AbstractServerProcess]")
 
     SECTION("abstractServerProcess")
     {
+//        ServerProcessSettings ts = srv.settings();
+//        REQUIRE(ts == s);
+
+//        ServerProcessSettings s2;
+//        srv.setSettings(s2);
+//        ts = srv.settings();
+//        REQUIRE(ts == s2);
+
+        //
         REQUIRE(srv.loadLibrary(""));
         REQUIRE(srv.loadExternal(""));
+
+        REQUIRE(srv.createCanvas().get() == 0);
     }
 
     //    SECTION("serverSettings")
