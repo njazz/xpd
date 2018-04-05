@@ -2,6 +2,9 @@
 
 #include "abstractserverprocess.h"
 #include "pd_localserver.h"
+#include "pd_consoleobserver.h"
+
+#include "../pd/cpd/cpd.h"
 
 using namespace xpd;
 
@@ -98,5 +101,24 @@ TEST_CASE("localserver", "[server]")
         REQUIRE(cnv->connect(id0, 0, id1, 0));
 
         cnv->sendFloat(id0, 60);
+    }
+
+    SECTION("extra")
+    {
+        PdLocalServer srv(ServerSettings("local"));
+        ProcessPtr p = srv.createProcess();
+
+        p->setLogLevel(LOG_ERROR);
+        p->setLogLevel(LOG_DUMP);
+
+        PdConsoleObserver* co =new PdConsoleObserver();
+        ConsoleObserverPtr c = std::shared_ptr<ConsoleObserver>((ConsoleObserver*)(co));
+
+        p->registerConsoleObserver(c);
+        REQUIRE(p);
+
+        co->setText("test text");
+        REQUIRE(p);
+
     }
 }
