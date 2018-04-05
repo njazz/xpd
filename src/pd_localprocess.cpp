@@ -182,7 +182,8 @@ void PdLocalProcess::receiverCallback(t_cpd_list* msg)
             }
         }
 
-        observer->setData(o);
+        PdArguments a = PdArguments(cpd_list_to_string(o));
+        observer->setData(a);
         observer->update();
 
         cpd_list_free(o);
