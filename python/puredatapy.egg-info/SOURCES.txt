@@ -1,0 +1,6 @@
+setup.py
+puredatapy.egg-info/PKG-INFO
+puredatapy.egg-info/SOURCES.txt
+puredatapy.egg-info/dependency_links.txt
+puredatapy.egg-info/not-zip-safe
+puredatapy.egg-info/top_level.txt
