@@ -115,7 +115,10 @@ PYBIND11_MODULE(puredatapy, m) {
     .def("register_observer", &xpd::Canvas::registerObserver)
     .def("delete_observer", &xpd::Canvas::deleteObserver)
 
-    .def("objects", &xpd::Canvas::objects)
+    // unsafe
+    .def("objects", [](xpd::Canvas& c){
+      return &c.objects();
+    }, py::return_value_policy::reference)
 
     .def("connect", &xpd::Canvas::connect)
     .def("disconnect", &xpd::Canvas::disconnect)
@@ -159,7 +162,7 @@ PYBIND11_MODULE(puredatapy, m) {
     .def("disconnect", &xpd::ObjectList::disconnect)
     .def("is_connected", &xpd::ObjectList::isConnected)
 
-    .def("find_object",[](const xpd::ObjectList& l, xpd::ObjectId id){return l.findObject(id);})
+    .def("find_object",[](const xpd::ObjectList& l, xpd::ObjectId id){return l.findObject(id);}, py::return_value_policy::reference)
     .def("find_object_index", &xpd::ObjectList::findObjectIndex)
 
     .def("contains", &xpd::ObjectList::contains)
@@ -215,6 +218,13 @@ PYBIND11_MODULE(puredatapy, m) {
 
 ;
 
+py::class_<xpd::Inlet>(m,"Inlet")
+  .def("type", [](xpd::Inlet&xlet){return (int)xlet.type();})
+;
+
+py::class_<xpd::Outlet>(m,"Outlet")
+  .def("type", [](xpd::Outlet&xlet){return (int)xlet.type();})
+;
 
 
   py::class_<xpd::Arguments>(m,"Arguments")
